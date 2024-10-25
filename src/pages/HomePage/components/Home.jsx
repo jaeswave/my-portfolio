@@ -1,11 +1,12 @@
 import homeImage from "../../../assets/icon.png";
 import Button from "../../../components/Button";
-import resume from "../../../../public/Resume.pdf";
 import { handleScroll } from "../../../utils";
+import Resume from "../../../assets/Resume.pdf";
 const Home = () => {
   function handleResumeClick() {
-    window.open(resume, "_blank");
+    window.open(Resume, "_blank");
   }
+
   return (
     <div className=" bg-black text-center py-24">
       <div className="container grid grid-row-3 gap-5 place-self-center">
