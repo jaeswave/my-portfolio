@@ -24,17 +24,17 @@ const About = () => {
             </p>
 
             <p className="text-xl">
-              Beyond technical skills, I have experience managing projects using
-              tools like Jira and Trello, ensuring effective task tracking, team
-              collaboration, and project delivery. My combination of development
-              expertise and project management skills enables me to drive
-              successful outcomes from both technical and organizational
-              perspectives.
+              Beyond programming skills, I have experience managing projects
+              using tools like Jira and Trello, ensuring effective task
+              tracking, team collaboration, and project delivery. My combination
+              of development expertise and project management skills enables me
+              to drive successful outcomes from both technical and
+              organizational perspectives.
             </p>
           </div>
         </div>
         <div className=" grid grid-rows-3 gap-3 px-5 font-bold">
-          <div className="flex items-center">
+          <div className="flex items-center gap-5">
             <label htmlFor="html&css" className="w-2/12 ">
               HTML & CSS
             </label>
@@ -42,7 +42,7 @@ const About = () => {
               <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-11/12"></div>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-5">
             <label htmlFor="react" className="w-2/12 ">
               React JS
             </label>
@@ -50,7 +50,7 @@ const About = () => {
               <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-10/12"></div>
             </div>
           </div>
-          <div className="flex  items-center">
+          <div className="flex  items-center gap-5">
             <label htmlFor="node" className="w-2/12 ">
               Node JS
             </label>
@@ -58,7 +58,7 @@ const About = () => {
               <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-11/12"></div>
             </div>
           </div>
-          <div className="flex  items-center">
+          <div className="flex  items-center gap-10 sm:gap-5">
             <label htmlFor="Database" className="w-2/12 ">
               Databases
             </label>
@@ -66,7 +66,7 @@ const About = () => {
               <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-9/12"></div>
             </div>
           </div>
-          <div className="flex  items-center">
+          <div className="flex  items-center gap-5">
             <label htmlFor="project" className="w-2/12 ">
               Project Manager
             </label>
