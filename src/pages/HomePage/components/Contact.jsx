@@ -5,7 +5,10 @@ import Button from "../../../components/Button";
 
 const Contact = () => {
   return (
-    <div className="bg-black text-white py-10" id="contact">
+    <div
+      className="bg-hero-bg bg-no-repeat bg-cover text-white py-10"
+      id="contact"
+    >
       <div className="container mx-auto md:px-12 lg:px-20 grid place-self-center  py-5 ">
         <h2 className="text-4xl font-bold text-center mb-14">Contact</h2>
         <div className="grid md:grid-cols-2 px-8 gap-5">

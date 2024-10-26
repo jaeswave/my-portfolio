@@ -1,7 +1,10 @@
 import aboutImage from "../../../assets/icon.png";
 const About = () => {
   return (
-    <div className="bg-black text-white py-10" id="about">
+    <div
+      className="bg-hero-bg bg-no-repeat bg-cover text-white py-10"
+      id="about"
+    >
       <div className="container mx-auto md:px-12 lg:px-20 grid place-self-center ">
         <h2 className="text-4xl font-bold text-center mb-14">About Me</h2>
         <div className="grid grid-row-2 lg:grid-cols-[20%_auto] gap-2 mb-8">
