@@ -4,7 +4,7 @@ import { projects } from "../../../utils";
 const Project = () => {
   return (
     <div
-      className="bg-hero-bg bg-no-repeat bg-cover text-white py-20"
+      className="text-white py-20"
       id="project"
     >
       <div className="container mx-auto md:px-12 lg:px-20 px-8 grid place-self-center ">

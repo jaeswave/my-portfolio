@@ -1,10 +1,7 @@
 import aboutImage from "../../../assets/icon.png";
 const About = () => {
   return (
-    <div
-      className="bg-hero-bg bg-no-repeat bg-cover text-white py-10"
-      id="about"
-    >
+    <div className="text-white py-10 bg-transparent" id="about">
       <div className="container mx-auto md:px-12 lg:px-20 grid place-self-center ">
         <h2 className="text-4xl font-bold text-center mb-14">About Me</h2>
         <div className="grid grid-row-2 lg:grid-cols-[20%_auto] gap-2 mb-8">
@@ -34,68 +31,6 @@ const About = () => {
               to drive successful outcomes from both technical and
               organizational perspectives.
             </p>
-          </div>
-        </div>
-        <div className=" grid grid-rows-3 gap-3 px-5 font-bold">
-          <div className="flex items-center gap-5">
-            <label htmlFor="html&css" className="w-2/12 ">
-              HTML & CSS
-            </label>
-            <div className="grow bg-gray-800 rounded-full h-2.5">
-              <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-11/12"></div>
-            </div>
-          </div>
-          <div className="flex items-center gap-5">
-            <label htmlFor="react" className="w-2/12 ">
-              React JS
-            </label>
-            <div className="grow bg-gray-800 rounded-full h-2.5">
-              <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-10/12"></div>
-            </div>
-          </div>
-          <div className="flex  items-center gap-5">
-            <label htmlFor="node" className="w-2/12 ">
-              Node JS
-            </label>
-            <div className="grow bg-gray-800 rounded-full h-2.5">
-              <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-11/12"></div>
-            </div>
-          </div>
-          <div className="flex  items-center gap-10 sm:gap-5">
-            <label htmlFor="Database" className="w-2/12 ">
-              Databases
-            </label>
-            <div className="grow bg-gray-800 rounded-full h-2.5">
-              <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-9/12"></div>
-            </div>
-          </div>
-          <div className="flex  items-center gap-5">
-            <label htmlFor="project" className="w-2/12 ">
-              Project Manager
-            </label>
-            <div className="grow bg-gray-800 rounded-full h-2.5">
-              <div className="bg-gradient-to-r from-teal-500 to-green-500 h-2.5 rounded-full transform transition-transform duration-300 hover:scale-105 w-7/12"></div>
-            </div>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 place-items-center text-center mt-8">
-          <div>
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-green-400">
-              3+
-            </h3>
-            <p>Years Experience</p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-green-400">
-              5+
-            </h3>
-            <p>Projects Completed</p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-green-400">
-              10+
-            </h3>
-            <p>Satisfied Clients</p>
           </div>
         </div>
       </div>

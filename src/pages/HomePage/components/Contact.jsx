@@ -2,13 +2,29 @@ import { BsEnvelopeArrowDown } from "react-icons/bs";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import Button from "../../../components/Button";
+import { useState } from "react";
+import { handleFormSubmit } from "../../../services/email/email";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleFormSubmit(formData, setIsSubmitting, setFormData);
+  };
+
   return (
-    <div
-      className="bg-hero-bg bg-no-repeat bg-cover text-white py-10"
-      id="contact"
-    >
+    <div className="text-white py-10" id="contact">
       <div className="container mx-auto md:px-12 lg:px-20 grid place-self-center  py-5 ">
         <h2 className="text-4xl font-bold text-center mb-14">Contact</h2>
         <div className="grid md:grid-cols-2 px-8 gap-5">
@@ -37,21 +53,29 @@ const Contact = () => {
             </div>
           </div>
           <div className="place-self-center w-full">
-            <form action="" className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name">Your Name</label>
                 <input
                   type="text"
                   className="w-full p-2 rounded bg-gray-500 border border-gray-600 focus:outline-none focus:border-green-500"
-                  placeholder="john Doe"
+                  placeholder="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div>
                 <label htmlFor="email">Your Email</label>
                 <input
-                  type="text"
                   className="w-full p-2 rounded bg-gray-500 border border-gray-600 focus:outline-none focus:border-green-500"
-                  placeholder="johndoe89@email.com"
+                  placeholder="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div>
@@ -59,10 +83,18 @@ const Contact = () => {
                 <textarea
                   className="w-full h-48 p-2 rounded bg-gray-500 border border-gray-600 focus:outline-none focus:border-green-500"
                   rows="5"
-                  placeholder="Enter you messages"
+                  placeholder="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                 />
               </div>
-              <Button title="send" />
+              <Button
+                title={isSubmitting ? "Sending..." : "Send Message"}
+                type="submit"
+                disabled={isSubmitting}
+              />
             </form>
           </div>
         </div>

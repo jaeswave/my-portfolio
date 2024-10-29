@@ -8,7 +8,7 @@ const Home = () => {
   }
 
   return (
-    <div className=" bg-hero-bg bg-no-repeat bg-cover text-center py-24">
+    <div className="text-center py-24">
       <div className="container grid grid-row-3 gap-5 place-self-center">
         <div className="place-self-center">
           <img
