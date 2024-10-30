@@ -32,8 +32,8 @@ export const handleFormSubmit = async (
     setFormData({ name: "", email: "", message: "" });
   } catch (error) {
     console.log(error);
-    toast.error("error", error);
-    // toast.error("Failed to send the message. Please try again.");
+    // toast.error("error", error);
+    toast.error("Failed to send the message. Please try again.");
   } finally {
     setIsSubmitting(false);
   }
