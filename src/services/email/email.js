@@ -15,6 +15,7 @@ export const sendEmail = async (formData) => {
     );
     return response;
   } catch (error) {
+    console.log(error)
     throw new Error("Email sending failed");
   }
 };
@@ -30,7 +31,9 @@ export const handleFormSubmit = async (
     toast.success("Message sent successfully!");
     setFormData({ name: "", email: "", message: "" });
   } catch (error) {
-    toast.error("Failed to send the message. Please try again.");
+    console.log(error);
+    toast.error("error", error);
+    // toast.error("Failed to send the message. Please try again.");
   } finally {
     setIsSubmitting(false);
   }
