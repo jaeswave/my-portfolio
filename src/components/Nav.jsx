@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import "animate.css";
+import { handleScroll } from "../utils";
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -12,8 +13,8 @@ const Nav = () => {
       setAnimateOut(true);
       setTimeout(() => {
         setNavOpen(false);
-        setAnimateOut(false); // Reset animation state after hiding
-      }, 500); // Match this with the duration of bounceOutUp animation (500ms)
+        setAnimateOut(false);
+      }, 500);
     } else {
       setNavOpen(true);
     }
@@ -32,22 +33,40 @@ const Nav = () => {
               : "hidden md:space-x-6 md:block"
           }`}
         >
-          <a href="#home" className="hover:text-teal-500">
+          <a
+            onClick={() => handleScroll("home")}
+            className="hover:text-teal-500 cursor-pointer"
+          >
             Home
           </a>
-          <a href="#about" className="hover:text-teal-500">
+          <a
+            onClick={() => handleScroll("about")}
+            className="hover:text-teal-500 cursor-pointer"
+          >
             About
           </a>
-          <a href="#skills" className="hover:text-teal-500">
+          <a
+            onClick={() => handleScroll("skills")}
+            className="hover:text-teal-500 cursor-pointer"
+          >
             Skills
           </a>
-          <a href="#service" className="hover:text-teal-500">
+          <a
+            onClick={() => handleScroll("service")}
+            className="hover:text-teal-500 cursor-pointer"
+          >
             Service
           </a>
-          <a href="#project" className="hover:text-teal-500">
+          <a
+            onClick={() => handleScroll("project")}
+            className="hover:text-teal-500 cursor-pointer"
+          >
             Projects
           </a>
-          <a href="#contact" className="hover:text-teal-500">
+          <a
+            onClick={() => handleScroll("contact")}
+            className="hover:text-teal-500 cursor-pointer"
+          >
             Contact
           </a>
         </div>

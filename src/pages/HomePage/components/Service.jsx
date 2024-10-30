@@ -1,5 +1,5 @@
 import Cards from "../../../components/Cards";
-import { services } from "../../../utils";
+import { services } from "../../../data";
 const Service = () => {
   return (
     <div className="text-white py-20" id="service">

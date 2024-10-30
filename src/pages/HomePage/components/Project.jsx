@@ -1,17 +1,15 @@
 import Cards from "../../../components/Cards";
-import { projects } from "../../../utils";
+import { projects } from "../../../data";
 
 const Project = () => {
   return (
-    <div
-      className="text-white py-20"
-      id="project"
-    >
+    <div className="text-white py-20" id="project">
       <div className="container mx-auto md:px-12 lg:px-20 px-8 grid place-self-center ">
         <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
         <div className="grid lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <Cards
+              cardType={false}
               key={project.id}
               projectImage={project.image}
               title={project.title}
