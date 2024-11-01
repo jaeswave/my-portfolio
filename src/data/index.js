@@ -1,5 +1,5 @@
-import portfolioImage from "../assets/portfolio.png";
-import frontendImg from "../assets/frontendImg.png";
+import portfolioImage from "../assets/portfolioImage.png";
+import frontendImg from "../assets/frontendImage.png";
 
 export const services = [
   {

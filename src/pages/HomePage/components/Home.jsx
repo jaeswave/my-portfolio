@@ -1,7 +1,7 @@
-import homeImage from "../../../assets/icon.png";
+import homeImage from "../../../assets/homeImage.png";
 import Button from "../../../components/Button";
 import { handleScroll } from "../../../utils";
-import Resume from "../../../assets/Resume.pdf";
+import Resume from "../../../assets/My_Resume.pdf";
 import "animate.css";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
       <div className="container grid grid-row-3 gap-5 place-self-center">
         <div className="place-self-center">
           <img
-            className="animate__animated animate__backInDown mx-auto w-48 h-48  rounded-full object-cover transform transition-transform duration-300 hover:scale-100"
+            className="animate__animated animate__backInDown mx-auto min-w-56 h-56  rounded-full object-cover transform transition-transform duration-300 hover:scale-100"
             src={homeImage}
             alt="homeImg"
           />

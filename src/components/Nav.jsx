@@ -23,7 +23,7 @@ const Nav = () => {
   return (
     <nav className="bg-black text-white px-8 md:px-16 lg:px-24 fixed top-0 left-0 w-full shadow-md z-10">
       <div className="container flex justify-between items-center">
-        <div className="text-2xl font-bold">JaeSwave</div>
+        <div className="text-2xl font-bold font-logo">JaeSwave</div>
         <div
           className={`${
             navOpen

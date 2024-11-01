@@ -1,4 +1,4 @@
-import aboutImage from "../../../assets/icon.png";
+import aboutImage from "../../../assets/aboutImage.png";
 const About = () => {
   return (
     <div className="text-white py-10 bg-transparent" id="about">
@@ -7,7 +7,7 @@ const About = () => {
         <div className="grid grid-row-2 lg:grid-cols-[20%_auto] gap-2 mb-8">
           <div className="place-self-center">
             <img
-              className="w-72 h-72rounded-lg object-cover border-solid border"
+              className="w-80 h-80 rounded-lg object-cover border-solid border"
               src={aboutImage}
               alt="aboutImage"
             />
