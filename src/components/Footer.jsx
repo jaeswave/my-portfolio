@@ -14,13 +14,16 @@ const Footer = () => {
           <span>2024</span>
         </p>
         <div className="flex gap-3">
-          <a href="https://www.linkedin.com/feed/" target="_black">
+          <a
+            href="https://www.linkedin.com/in/oladele-tijani-4350302b1/"
+            target="_black"
+          >
             <FaLinkedin />
           </a>
           <a href="https://github.com/jaeswave" target="_black">
             <FaGithub />
           </a>
-          <a href="https://x.com/home" target="_blank">
+          <a href="https://x.com/jaeswave" target="_blank">
             <FaTwitter />
           </a>
         </div>
