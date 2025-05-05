@@ -43,6 +43,18 @@ export const skills = [
     ],
   },
   {
+    title: "Cybersecurity",
+    items: [
+      { name: "Network Security", icon: SiAsana }, // Replace with a better icon if you want
+      { name: "Penetration Testing", icon: SiAsana },
+      { name: "SQL Injection Testing", icon: SiAsana },
+      { name: "Cyber Hygiene", icon: SiAsana },
+      { name: "Secure Coding", icon: SiAsana },
+      { name: "Security Audits", icon: SiAsana },
+    ],
+  },
+
+  {
     title: "Frameworks",
     items: [
       { name: "React", icon: FaReact },

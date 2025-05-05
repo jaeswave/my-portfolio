@@ -14,22 +14,19 @@ const About = () => {
           </div>
           <div className="flex flex-col justify-center gap-5  px-2 py-2 text-center">
             <p className="text-xl">
-              I{"'"}m passionate about developing innovative solutions that make
-              a real difference in the world. I have a strong foundation in
-              programming languages such as JavaScript and Python, along with
-              experience in web frameworks like React, React Native and Next.js.
-              Additionally, I am proficient in backend technologies such as
-              Node.js and have worked extensively with both SQL and NoSQL
-              databases.
-            </p>
-
-            <p className="text-xl">
-              Beyond programming skills, I have experience managing projects
-              using tools like Jira and Trello, ensuring effective task
-              tracking, team collaboration, and project delivery. My combination
-              of development expertise and project management skills enables me
-              to drive successful outcomes from both technical and
-              organizational perspectives.
+              I{"'"}m a versatile tech professional with core expertise in full
+              stack software development, project management, and cybersecurity.
+              As a Full Stack Engineer, I build responsive, secure, and
+              high-performing applications using technologies like React,
+              Node.js, Next.js, NestJS, and Docker. As a Project Manager, I
+              drive product delivery through agile processes, effective team
+              coordination, and strategic planning—ensuring quality and
+              consistency across the board. As a Cybersecurity Specialist, I
+              focus on building resilient systems with strong authentication,
+              data protection, and vulnerability prevention measures integrated
+              by design. I'm passionate about creating tech solutions that solve
+              real problems, leading with a balance of technical precision and
+              big-picture thinking.
             </p>
           </div>
         </div>
