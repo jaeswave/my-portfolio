@@ -11,23 +11,32 @@ const Service = () => {
 
   return (
     <div
-      className="text-white py-20"
       id="service"
+      className="relative py-20 text-white bg-gradient-to-b from-/5 blackto-white/10 backdrop-blur-sm"
     >
-      <div className="container mx-auto md:px-12 lg:px-20 px-8">
+      <div className="container mx-auto md:px-12 lg:px-20 px-6">
         <h2
-          className="text-4xl font-bold text-center mb-12"
+          className="text-4xl font-bold text-center mb-4"
           data-aos="fade-down"
         >
           Services
         </h2>
+        <p
+          className="text-center text-gray-400 max-w-xl mx-auto mb-12"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          I offer professional services that blend full-stack development,
+          cybersecurity expertise, and agile project delivery.
+        </p>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={service.id}
               data-aos="fade-up"
-              data-aos-delay={index * 100}
-              className=" text-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              data-aos-delay={index * 150}
+              className="bg-white/5 backdrop-blur-md p-6 border border-white/10 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
             >
               <Cards
                 cardType={true}

@@ -1,7 +1,10 @@
+// 
+
+
+
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import Cards from "../../../components/Cards";
 import { skills } from "../../../data/skillsData";
 
 const Skills = () => {
@@ -10,42 +13,50 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="text-white py-20" id="skills">
-      <div className="container mx-auto md:px-12 lg:px-20 px-8">
-        <h2
-          className="text-4xl font-bold text-center mb-12"
-          data-aos="fade-down"
-        >
-          Skills
-        </h2>
+    <section id="skills" className="relative z-10 py-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+        {/* Section Header */}
+        <div className="text-center mb-16" data-aos="fade-down">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
+            My Tech Arsenal
+          </h2>
+          <p className="mt-4 text-gray-300 text-lg">
+            Languages, frameworks, tools & platforms I work with every day.
+          </p>
+        </div>
+
+        {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skills.map((skillCategory) => (
             <div
               key={skillCategory.title}
-              data-aos="fade-up"
-              className=" p-6 bg-gradient-to-r from-blue-500 to-green-500	 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              data-aos="zoom-in"
+              className="group bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden"
             >
-              <h3 className="text-2xl font-semibold mb-4 text-white">
+              <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-blue-400 transition-colors">
                 {skillCategory.title}
               </h3>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3">
                 {skillCategory.items.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] rounded-lg hover:bg-[#3a3a3a] transition-transform duration-300 transform hover:scale-105"
+                    className="flex items-center gap-2 px-3 py-2 bg-[#1f1f1f] hover:bg-[#2a2a2a] rounded-lg transition duration-200"
                   >
-                    <span className="text-xl text-blue-400 group-hover:animate-bounce">
+                    <span className="text-blue-400 text-xl group-hover:animate-pulse">
                       {<skill.icon />}
                     </span>
-                    <span className="text-sm">{skill.name}</span>
+                    <span className="text-sm text-white">{skill.name}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Optional Glow Effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-blue-400 rounded-2xl blur-xl transition-all duration-500" />
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

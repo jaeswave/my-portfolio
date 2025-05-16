@@ -12,7 +12,7 @@ export const services = [
     id: 2,
     title: "Backend Development",
     description:
-      "Designing robust backend systems and RESTful APIs with Node.js, Express, and database integration, ensuring performance and security.",
+      "Designing robust backend systems and RESTful APIs with Node.js, Express, and database integration, ensuring performance and security, and handling user authentication and authorization.",
   },
   {
     id: 3,
@@ -46,15 +46,15 @@ export const services = [
   },
 ];
 
-
 export const projects = [
   {
     id: 1,
     title: "Personal Portfolio Website",
     description:
       "A fully responsive personal portfolio website showcasing my skills, projects, and experience as a Full Stack Software Engineer and Project Manager. Built with React and Tailwind CSS, the portfolio features dynamic project displays, seamless navigation, and clean UI/UX design.",
-    techStack: ["React.", "Tailwind CSS.", "JavaScript."],
+    techStack: ["React", "Tailwind CSS", "JavaScript"],
     githubLink: "https://github.com/your-portfolio-repo",
+    liveLink: "https://yourportfolio.com", // Replace with actual live URL if available
     image: portfolioImage,
   },
   {
@@ -62,8 +62,9 @@ export const projects = [
     title: "Frontend Utility Service Payment",
     description:
       "A responsive and interactive frontend application that allows users to pay utility bills with ease. Built with React and Tailwind CSS, this platform provides a smooth user experience for handling payments and transaction history.",
-    techStack: ["React.", "Tailwind CSS.", "JavaScript.", "API Integration."],
+    techStack: ["React", "Tailwind CSS", "JavaScript", "API Integration"],
     githubLink: "https://github.com/jaeswave/utility",
+    liveLink: "https://utility-frontend.example.com", // Optional
     image: frontendImg,
   },
   {
@@ -71,30 +72,30 @@ export const projects = [
     title: "Backend Utility Service Payment",
     description:
       "A robust backend system that supports utility service payments. Developed with Node.js and Express, this service integrates with third-party payment gateways, handles user authentication, and processes payment transactions securely.",
-    techStack: [
-      "Node.js.",
-      "Express.",
-      "MySQL.",
-      "Payment Gateway Integration",
-    ],
+    techStack: ["Node.js", "Express", "MySQL", "Payment Gateway Integration"],
     githubLink: "https://github.com/jaeswave/backend-api-utils",
-    image: "path/to/backend-project-image.jpg",
+    liveLink: "https://backend-utils.example.com", // Optional
+    image: backendImg,
   },
   {
     id: 4,
     title: "MailMeQuran",
     description:
       "A spiritual productivity app that emails users a daily number of Quranic verses with a reminder image, customizable to their pace.",
-    techStack: ["React", "Express", "Node.js", "Postgre Sql", "SendGrid"],
-    githubLink: "https://mailmequran.com",
+    techStack: ["React", "Express", "Node.js", "PostgreSQL", "SendGrid"],
+    githubLink: "https://github.com/jaeswave/mailmequran",
+    liveLink: "https://mailmequran.com",
+    image: mailmequranImg,
   },
   {
     id: 5,
     title: "Ayatong",
     description:
       "A platform designed to help detect early signs of autism in children through behavioral input and intelligent analysis.",
-    techStack: ["React", "Node.js", "Express", "MySql", "Tailwind CSS"],
-    githubLink: "https://ayatong.com",
+    techStack: ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"],
+    githubLink: "https://github.com/jaeswave/ayatong",
+    liveLink: "https://ayatong.com",
+    image: ayatongImg,
   },
   {
     id: 6,
@@ -102,6 +103,8 @@ export const projects = [
     description:
       "A modern STEM learning platform for kids with multimedia content and secure user access, built with full-stack scalability in mind.",
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Tailwind CSS"],
-    githubLink: "https://stemmets.com",
+    githubLink: "https://github.com/jaeswave/stemmets",
+    liveLink: "https://stemmets.com",
+    image: stemmetsImg,
   },
 ];
