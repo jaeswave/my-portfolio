@@ -75,7 +75,7 @@ export const projects = [
     techStack: ["Node.js", "Express", "MySQL", "Payment Gateway Integration"],
     githubLink: "https://github.com/jaeswave/backend-api-utils",
     liveLink: "https://backend-utils.example.com", // Optional
-    image: backendImg,
+    image: "",
   },
   {
     id: 4,
@@ -85,7 +85,7 @@ export const projects = [
     techStack: ["React", "Express", "Node.js", "PostgreSQL", "SendGrid"],
     githubLink: "https://github.com/jaeswave/mailmequran",
     liveLink: "https://mailmequran.com",
-    image: mailmequranImg,
+    image: "",
   },
   {
     id: 5,
@@ -95,7 +95,7 @@ export const projects = [
     techStack: ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"],
     githubLink: "https://github.com/jaeswave/ayatong",
     liveLink: "https://ayatong.com",
-    image: ayatongImg,
+    image: "",
   },
   {
     id: 6,
@@ -105,6 +105,6 @@ export const projects = [
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Tailwind CSS"],
     githubLink: "https://github.com/jaeswave/stemmets",
     liveLink: "https://stemmets.com",
-    image: stemmetsImg,
+    image: "",
   },
 ];
