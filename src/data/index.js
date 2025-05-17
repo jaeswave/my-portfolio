@@ -1,5 +1,9 @@
 import portfolioImage from "../assets/portfolioImage.png";
 import frontendImg from "../assets/frontendImage.png";
+import mailmequran from "../assets/mailmequran.png";
+import ayato from "../assets/ayato.png";
+import stemmets from "../assets/stemmets.png";
+import mahfuz from "../assets/mahfuz.png";
 
 export const services = [
   {
@@ -51,30 +55,27 @@ export const projects = [
     id: 1,
     title: "Personal Portfolio Website",
     description:
-      "A fully responsive personal portfolio website showcasing my skills, projects, and experience as a Full Stack Software Engineer and Project Manager. Built with React and Tailwind CSS, the portfolio features dynamic project displays, seamless navigation, and clean UI/UX design.",
+      "A fully responsive personal portfolio website showcasing my skills, projects, and experience ,",
     techStack: ["React", "Tailwind CSS", "JavaScript"],
-    githubLink: "https://github.com/your-portfolio-repo",
-    liveLink: "https://yourportfolio.com", // Replace with actual live URL if available
+    liveLink: "https://my-portfolio-xi-indol-96.vercel.app/",
     image: portfolioImage,
   },
   {
     id: 2,
-    title: "Frontend Utility Service Payment",
+    title: "Frontend Utils Payment",
     description:
-      "A responsive and interactive frontend application that allows users to pay utility bills with ease. Built with React and Tailwind CSS, this platform provides a smooth user experience for handling payments and transaction history.",
+      "A responsive and interactive frontend application that allows users to pay utility bills with ease.",
     techStack: ["React", "Tailwind CSS", "JavaScript", "API Integration"],
-    githubLink: "https://github.com/jaeswave/utility",
-    liveLink: "https://utility-frontend.example.com", // Optional
+    liveLink: "",
     image: frontendImg,
   },
   {
     id: 3,
-    title: "Backend Utility Service Payment",
+    title: "Backend Utils Payment",
     description:
-      "A robust backend system that supports utility service payments. Developed with Node.js and Express, this service integrates with third-party payment gateways, handles user authentication, and processes payment transactions securely.",
+      "A robust backend system that supports utility service payments,this service integrates with third-party payment gateways.",
     techStack: ["Node.js", "Express", "MySQL", "Payment Gateway Integration"],
-    githubLink: "https://github.com/jaeswave/backend-api-utils",
-    liveLink: "https://backend-utils.example.com", // Optional
+    liveLink: "",
     image: "",
   },
   {
@@ -83,9 +84,8 @@ export const projects = [
     description:
       "A spiritual productivity app that emails users a daily number of Quranic verses with a reminder image, customizable to their pace.",
     techStack: ["React", "Express", "Node.js", "PostgreSQL", "SendGrid"],
-    githubLink: "https://github.com/jaeswave/mailmequran",
     liveLink: "https://mailmequran.com",
-    image: "",
+    image: mailmequran,
   },
   {
     id: 5,
@@ -93,9 +93,8 @@ export const projects = [
     description:
       "A platform designed to help detect early signs of autism in children through behavioral input and intelligent analysis.",
     techStack: ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"],
-    githubLink: "https://github.com/jaeswave/ayatong",
     liveLink: "https://ayatong.com",
-    image: "",
+    image: ayato,
   },
   {
     id: 6,
@@ -105,6 +104,15 @@ export const projects = [
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Tailwind CSS"],
     githubLink: "https://github.com/jaeswave/stemmets",
     liveLink: "https://stemmets.com",
-    image: "",
+    image: stemmets,
+  },
+  {
+    id: 7,
+    title: "Mahfuz",
+    description:
+      "Mahfuz Microfinance Bank is an upcoming interest-free, ethics-focused financial institution. ",
+    techStack: ["React", "Tailwind CSS"],
+    liveLink: "https://mahfuzmfb.com",
+    image: mahfuz,
   },
 ];
