@@ -4,6 +4,7 @@ import mailmequran from "../assets/mailmequran.png";
 import ayato from "../assets/ayato.png";
 import stemmets from "../assets/stemmets.png";
 import mahfuz from "../assets/mahfuz.png";
+import support from "../assets/support.png";
 
 export const services = [
   {
@@ -55,8 +56,8 @@ export const projects = [
     id: 1,
     title: "Personal Portfolio Website",
     description:
-      "A fully responsive personal portfolio website showcasing my skills, projects, and experience ,",
-    techStack: ["React", "Tailwind CSS", "JavaScript"],
+      "A fully responsive personal portfolio website showcasing my skills, projects, and experience",
+    techStack: ["React", "Tailwind CSS", "JavaScript", "email service"],
     liveLink: "https://my-portfolio-xi-indol-96.vercel.app/",
     image: portfolioImage,
   },
@@ -64,7 +65,7 @@ export const projects = [
     id: 2,
     title: "Frontend Utils Payment",
     description:
-      "A responsive and interactive frontend application that allows users to pay utility bills with ease.",
+      "A responsive and interactive application that allows users to pay utility bills with ease.",
     techStack: ["React", "Tailwind CSS", "JavaScript", "API Integration"],
     liveLink: "",
     image: frontendImg,
@@ -74,7 +75,13 @@ export const projects = [
     title: "Backend Utils Payment",
     description:
       "A robust backend system that supports utility service payments,this service integrates with third-party payment gateways.",
-    techStack: ["Node.js", "Express", "MySQL", "Payment Gateway Integration"],
+    techStack: [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Payment Gateway Integration",
+      "redis",
+    ],
     liveLink: "",
     image: "",
   },
@@ -83,7 +90,18 @@ export const projects = [
     title: "MailMeQuran",
     description:
       "A spiritual productivity app that emails users a daily number of Quranic verses with a reminder image, customizable to their pace.",
-    techStack: ["React", "Express", "Node.js", "PostgreSQL", "SendGrid"],
+    techStack: [
+      "React",
+      "Express",
+      "Node.js",
+      "PostgreSQL",
+      "SendGrid",
+      "Tailwind CSS",
+      "API Integration",
+      "email service",
+      "redis",
+      "authentication",
+    ],
     liveLink: "https://mailmequran.com",
     image: mailmequran,
   },
@@ -102,7 +120,6 @@ export const projects = [
     description:
       "A modern STEM learning platform for kids with multimedia content and secure user access, built with full-stack scalability in mind.",
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Tailwind CSS"],
-    githubLink: "https://github.com/jaeswave/stemmets",
     liveLink: "https://stemmets.com",
     image: stemmets,
   },
@@ -115,4 +132,26 @@ export const projects = [
     liveLink: "https://mahfuzmfb.com",
     image: mahfuz,
   },
+  {
+    id: 8,
+    title: "Ticket support app",
+    description:
+      "A responsive ticket support application designed to manage customer inquiries efficiently, featuring ticket creation, status tracking, and real-time updates.",
+
+    techStack: [
+      "Vue",
+      "Tailwind CSS",
+      "JavaScript",
+      "GraphQL",
+      "Apollo GraphQL",
+      "Ruby on Rails",
+      "API Integration",
+      "email service",
+      "postgresql",
+    ],
+    liveLink: "https://support-ui.onrender.com/",
+    image: support,
+  },
 ];
+
+
