@@ -42,9 +42,11 @@ const Skills = () => {
                     key={skill.name}
                     className="flex items-center gap-2 px-3 py-2 bg-[#1f1f1f] hover:bg-[#2a2a2a] rounded-lg transition duration-200"
                   >
-                    <span className="text-blue-400 text-xl group-hover:animate-pulse">
-                      {<skill.icon />}
-                    </span>
+                    {skill.icon ? (
+                      <skill.icon className="text-blue-400 w-5 h-5" />
+                    ) : (
+                      <span className="text-blue-400 w-5 h-5" />
+                    )}
                     <span className="text-sm text-white">{skill.name}</span>
                   </div>
                 ))}

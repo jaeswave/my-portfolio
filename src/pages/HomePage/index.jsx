@@ -9,15 +9,20 @@ import Service from "./components/Service";
 
 const HomePage = () => {
   return (
-    <div className="bg-hero-bg bg-no-repeat min-h-screen bg-cover bg-fixed">
-      <Nav />
-      <Home />
-      <About />
-      <Skills />
-      <Service />
-      <Project />
-      <Contact />
-      <Footer />
+    <div className="relative bg-heroBg min-h-screen text-white">
+      {/* Optional overlay for darkness and mystery */}
+      <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+
+      <div className="relative z-10">
+        <Nav />
+        <Home />
+        <About />
+        <Skills />
+        <Service />
+        <Project />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

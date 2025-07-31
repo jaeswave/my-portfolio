@@ -1,12 +1,12 @@
-import HomePage from "./pages/HomePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AppRoute from "./router/AppRoutes";
 
 const App = () => {
   return (
     <>
-      <HomePage />
       <ToastContainer />
+      <AppRoute />
     </>
   );
 };

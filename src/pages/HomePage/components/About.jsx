@@ -1,45 +1,3 @@
-// import aboutImage from "../../../assets/aboutImage.png";
-// const About = () => {
-//   return (
-//     <div className="text-white py-10 bg-transparent" id="about">
-//       <div className="container mx-auto md:px-12 lg:px-20 grid place-self-center ">
-//         <h2 className="text-4xl font-bold text-center mb-14">About Me</h2>
-//         <div className="grid grid-row-2 lg:grid-cols-[20%_auto] gap-2 mb-8">
-//           <div className="place-self-center">
-//             <img
-//               className="w-80 h-80 rounded-lg object-cover border-solid border"
-//               src={aboutImage}
-//               alt="aboutImage"
-//             />
-//           </div>
-//           <div className="flex flex-col justify-center gap-5  px-2 py-2 text-center">
-//             <p className="text-xl">
-//               I{"'"}m a versatile tech professional with core expertise in full
-//               stack software development, project management, and cybersecurity.
-//               As a Full Stack Engineer, I build responsive, secure, and
-//               high-performing applications using technologies like React,
-//               Node.js, Next.js, NestJS, and Docker. As a Project Manager, I
-//               drive product delivery through agile processes, effective team
-//               coordination, and strategic planning—ensuring quality and
-//               consistency across the board. As a Cybersecurity Specialist, I
-//               focus on building resilient systems with strong authentication,
-//               data protection, and vulnerability prevention measures integrated
-//               by design. I'm passionate about creating tech solutions that solve
-//               real problems, leading with a balance of technical precision and
-//               big-picture thinking.
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default About;
-
-
-
-
 import aboutImage from "../../../assets/aboutImage.png";
 
 const About = () => {
@@ -72,22 +30,36 @@ const About = () => {
 
           {/* Description */}
           <div className="max-w-2xl space-y-6 text-center lg:text-left text-gray-300 text-lg leading-relaxed">
-            <p>
-              <span className="font-semibold text-white">
-                Hi, I’m Oladdele Tijani Sheu
-              </span>{" "}
-              — a full stack engineer, project manager, and ethical hacker. I bring products to life by writing clean code, leading agile teams, and building secure, scalable systems.
-            </p>
-            <p>
-              I specialize in <span className="text-white font-medium">React, Node.js, Next.js, NestJS, and Docker</span>. I’ve led teams through complex software builds, ensuring efficiency and excellence at every stage.
-            </p>
-            <p>
-              In cybersecurity, I design systems that are hardened by default—leveraging authentication, encryption, and vulnerability prevention strategies from the ground up.
-            </p>
-            <p>
-              My mission is to build tech that matters—tools that solve real problems and make life better.
-            </p>
+            <div className="space-y-4 text-indigo-100">
+              <p>
+                I'm a tech polyglot with a passion for building scalable
+                systems, leading projects to success, and ensuring security at
+                every layer. With a strong foundation in engineering and
+                leadership, I thrive where code meets coordination and
+                protection.
+              </p>
+              <p>
+                My journey spans multiple dimensions of technology, from
+                crafting elegant code solutions to orchestrating complex
+                projects and safeguarding digital assets. Each realm represents
+                a facet of my professional identity, interconnected yet
+                distinct.
+              </p>
+              <p>
+                When I'm not traversing the digital multiverse, you might find
+                me exploring actual universes through astronomy, composing
+                electronic music, or designing generative art systems.
+              </p>
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="mt-8 flex flex-wrap gap-4 justify-center">
+        <div className="px-4 py-2 bg-indigo-900/50 backdrop-blur-sm rounded-full border border-indigo-500/30">
+          <span className="text-indigo-300">3+ Years Experience</span>
+        </div>
+        <div className="px-4 py-2 bg-purple-900/50 backdrop-blur-sm rounded-full border border-purple-500/30">
+          <span className="text-purple-300">10+ Projects Delivered</span>
         </div>
       </div>
     </section>
