@@ -33,7 +33,7 @@ const Nav = () => {
   return (
     <nav className="bg-gradient-to-r from-black via-gray-900 to-black bg-opacity-80 backdrop-blur-md text-white px-6 md:px-16 fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300">
       <div className="container mx-auto flex justify-between items-center h-16">
-        <div className="text-3xl font-extrabold font-logo tracking-wider text-teal-400 animate__animated animate__fadeInLeft">
+        <div className="text-1xl font-extrabold font-logo tracking-wider text-teal-400 animate__animated animate__fadeInLeft">
           JaeSwave
         </div>
 
