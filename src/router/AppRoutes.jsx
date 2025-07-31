@@ -1,6 +1,6 @@
 import Paths from "./path";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import NotFound from "../screens/NotFound";
+import Notfound from "../pages/Notfound";
 
 const AppRouters = () => {
   return (
@@ -10,8 +10,7 @@ const AppRouters = () => {
           <Route key={index} path={path} element={element} />
         ))}
 
-        {/* Catch-all 404 route */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </Router>
   );
