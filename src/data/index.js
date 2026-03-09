@@ -5,6 +5,8 @@ import ayato from "../assets/ayato.png";
 import stemmets from "../assets/stemmets.png";
 import mahfuz from "../assets/mahfuz.png";
 import support from "../assets/support.png";
+import raisevision from "../assets/raisevision.png";
+import bayview from "../assets/bayview.png";
 
 export const services = [
   {
@@ -77,107 +79,134 @@ export const services = [
   },
 ];
 
+
+
+
 export const projects = [
   {
     id: 1,
-    title: "Frontend Utils Payment",
-    description:
-      "A responsive and interactive application that allows users to pay utility bills with ease.",
-    techStack: ["React", "Tailwind CSS", "JavaScript", "API Integration"],
-    liveLink: "",
-    image: frontendImg,
-  },
-  {
-    id: 2,
-    title: "Backend Utils Payment",
-    description:
-      "A robust backend system that supports utility service payments,this service integrates with third-party payment gateways.",
-    techStack: [
-      "Node.js",
-      "Express",
-      "MySQL",
-      "Payment Gateway Integration",
-      "redis",
-    ],
-    liveLink: "",
-    image: "",
-  },
-  {
-    id: 3,
     title: "MailMeQuran",
     description:
-      "A spiritual productivity app that emails users a daily number of Quranic verses with a reminder image, customizable to their pace.",
+      "A spiritual productivity app that emails users daily Quranic verses with reminder images, customizable to their reading pace.",
     techStack: [
       "React",
-      "Express",
       "Node.js",
+      "Express",
       "PostgreSQL",
+      "Redis",
       "SendGrid",
       "Tailwind CSS",
-      "API Integration",
-      "email service",
-      "redis",
-      "authentication",
+    ],
+    features: [
+      "Daily Quran verse email delivery",
+      "Customizable reading pace",
+      "Automated reminder images",
+      "User authentication",
     ],
     liveLink: "https://mailmequran.com",
     image: mailmequran,
   },
+
   {
     id: 4,
     title: "Ayatong",
     description:
       "A platform designed to help detect early signs of autism in children through behavioral input and intelligent analysis.",
     techStack: ["React", "Node.js", "Express", "MySQL", "Tailwind CSS"],
+    features: [
+      "Behavioral data input system",
+      "Autism risk analysis",
+      "Child profile tracking",
+    ],
     liveLink: "https://ayatong.com",
     image: ayato,
   },
+
   {
     id: 5,
     title: "Stemmets",
     description:
-      "A modern STEM learning platform for kids with multimedia content and secure user access, built with full-stack scalability in mind.",
+      "A modern STEM learning platform for kids with multimedia lessons and secure user access.",
     techStack: ["Next.js", "NestJS", "PostgreSQL", "Tailwind CSS"],
+    features: [
+      "Interactive STEM lessons",
+      "Multimedia learning content",
+      "Secure student accounts",
+    ],
     liveLink: "https://stemmets.com",
     image: stemmets,
   },
+
   {
     id: 6,
     title: "Mahfuz",
     description:
-      "Mahfuz Microfinance Bank is an upcoming interest-free, ethics-focused financial institution. ",
+      "Mahfuz Microfinance Bank is an upcoming interest-free, ethics-focused financial institution.",
     techStack: ["React", "Tailwind CSS"],
+    features: ["Financial service information portal", "Responsive banking UI"],
     liveLink: "https://mahfuzmfb.com",
     image: mahfuz,
   },
+
   {
     id: 7,
-    title: "Ticket support app",
+    title: "Ticket Support App",
     description:
-      "A responsive ticket support application designed to manage customer inquiries efficiently, featuring ticket creation, status tracking, and real-time updates.",
-
+      "A customer support platform with ticket creation, status tracking, and real-time updates.",
     techStack: [
       "Vue",
-      "Tailwind CSS",
-      "JavaScript",
+      "Ruby on Rails",
       "GraphQL",
       "Apollo GraphQL",
-      "Ruby on Rails",
-      "API Integration",
-      "email service",
-      "postgresql",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
+    features: [
+      "Ticket creation and tracking",
+      "Real-time support updates",
+      "Email notifications",
     ],
     liveLink: "https://support-ui.onrender.com/",
     image: support,
   },
+
   {
     id: 8,
     title: "Care Medicals",
     description:
-      "A personal portfolio website showcasing my skills, projects, and professional journey, built with React and Tailwind CSS.",
-    techStack: ["React", "Tailwind CSS", "JavaScript"],
-    liveLink: "https://care-med-chi.vercel.app/",
+      "A responsive website for a medical service showcasing services and healthcare information.",
+    techStack: ["React", "JavaScript", "Tailwind CSS"],
+    features: ["Service showcase", "Responsive design", "Modern UI"],
+    liveLink: "https://caremedng.com",
     image: caremed,
   },
+  {
+    id: 9,
+    title: "Raise Vision Logistics",
+    description:
+      "A logistics management platform for efficient tracking and delivery of goods internationally.", 
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    features: [
+      "Shipment tracking",
+      "Real-time updates",
+      "User authentication",
+    ],
+    liveLink: "https://raisevisionlogistics.com",
+    image: raisevision,
+  },
+  {
+    id: 10,
+    title: "Bay View Island",
+    description:
+      "A luxurious resort destination offering stunning ocean views and world-class amenities.",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    features: [
+      "Luxurious accommodations",
+      "Oceanfront dining",
+      "Spa and wellness services",
+    ],
+    liveLink: "https://bay-view.vercel.app/",
+    image: bayview,
+  }
 ];
-
 

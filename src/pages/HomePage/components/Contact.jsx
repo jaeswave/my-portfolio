@@ -1,106 +1,111 @@
-import { BsEnvelopeArrowDown } from "react-icons/bs";
-import { FaPhoneVolume } from "react-icons/fa6";
-import { CiLocationOn } from "react-icons/ci";
-import Button from "../../../components/Button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { handleFormSubmit } from "../../../services/email/email";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+export default function Contact() {
+  const [formData, setFormData] = useState({ name:"", email:"", message:"" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const ref = useRef(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  useEffect(() => {
+    const els = ref.current?.querySelectorAll(".reveal");
+    const obs = new IntersectionObserver(e => {
+      e.forEach(en => { if (en.isIntersecting) en.target.classList.add("visible"); });
+    }, { threshold: 0.1 });
+    els?.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleFormSubmit(formData, setIsSubmitting, setFormData);
-  };
+  const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSubmit = e => { e.preventDefault(); handleFormSubmit(formData, setIsSubmitting, setFormData); };
+
+  const contacts = [
+    { icon:"✉️", label:"Email",    val:"oladeletijani89@gmail.com",  href:"mailto:oladeletijani89@gmail.com" },
+    { icon:"📞", label:"Phone",    val:"+234 802 244 0045",          href:"tel:+2348022440045" },
+    { icon:"📍", label:"Location", val:"Lagos, Nigeria",             href:null },
+  ];
 
   return (
-    <div className="text-white py-10" id="contact">
-      <div className="container mx-auto md:px-12 lg:px-20 grid place-self-center  py-5 ">
-        <h2 className="text-4xl font-bold text-center mb-14">Contact</h2>
-        <div className="grid md:grid-cols-2 px-8 gap-5">
-          <div className="place-self-center">
-            <h3 className="text-3xl font-bold">Let{"'"}s talk</h3>
-            <p>
-              I{"'"}m open to discussing projects development or partnership
-              opportunities.
-            </p>
-            <div className="mb-4 mt-8">
-              <BsEnvelopeArrowDown className="inline-block text-green-400 mr-2" />
-              <a
-                href="mailto:oladeletijani89@gmail.com"
-                className="hover:underline"
-              >
-                oladeletijani89@gmail.com
-              </a>
+    <section id="contact" className="py-28 relative" ref={ref}
+      style={{ background:"linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)" }}>
+      {/* Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2"
+        style={{ width:"600px", height:"300px", borderRadius:"50%",
+          background:"radial-gradient(ellipse,rgba(0,255,136,0.05) 0%,transparent 70%)",
+          pointerEvents:"none" }}/>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="section-label mb-4 reveal">05 / Contact</div>
+        <h2 className="font-display font-extrabold mb-4 reveal"
+          style={{ fontSize:"clamp(2.5rem,5vw,4rem)", fontFamily:"var(--font-display)", animationDelay:"0.1s" }}>
+          Let's Build Together
+        </h2>
+        <p className="mb-16 reveal" style={{ color:"var(--muted)", maxWidth:"480px", fontFamily:"var(--font-body)", animationDelay:"0.15s" }}>
+          Open to full-time roles, freelance projects, and technical partnerships.
+        </p>
+
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Left */}
+          <div>
+            <div className="space-y-5 mb-10">
+              {contacts.map(({ icon, label, val, href }) => (
+                <div key={label} className="reveal card-border p-5 flex items-center gap-5" style={{ animationDelay:"0.2s" }}>
+                  <span style={{ fontSize:"1.5rem" }}>{icon}</span>
+                  <div>
+                    <div className="font-mono text-xs mb-0.5" style={{ color:"var(--cyan)", letterSpacing:"0.1em" }}>{label}</div>
+                    {href ? (
+                      <a href={href} className="text-sm hover:underline transition-colors"
+                        style={{ color:"rgba(232,237,245,0.8)", fontFamily:"var(--font-body)", cursor:"none" }}>
+                        {val}
+                      </a>
+                    ) : (
+                      <span className="text-sm" style={{ color:"rgba(232,237,245,0.8)", fontFamily:"var(--font-body)" }}>{val}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="mb-4 mt-8">
-              <FaPhoneVolume className="inline-block text-green-400 mr-2" />
-              <span>+2348022440045</span>
-            </div>
-            <div className="mb-4 mt-8">
-              <CiLocationOn className="inline-block text-green-400 mr-2" />
-              <span>Lagos, Nigeria</span>
+
+            {/* Social */}
+            <div className="reveal" style={{ animationDelay:"0.35s" }}>
+              <div className="font-mono text-xs mb-4" style={{ color:"var(--muted)", letterSpacing:"0.15em" }}>FIND ME ONLINE</div>
+              <div className="flex gap-4">
+                {[["GitHub","https://github.com"],["LinkedIn","https://linkedin.com"],["Twitter","https://twitter.com"]].map(([name, url]) => (
+                  <a key={name} href={url} target="_blank" rel="noopener noreferrer"
+                    className="btn-ghost text-xs" style={{ cursor:"none", padding:"0.5rem 1rem" }}>
+                    {name}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="place-self-center w-full">
-            <form onSubmit={handleSubmit} className="space-y-4">
+
+          {/* Form */}
+          <div className="reveal" style={{ animationDelay:"0.25s" }}>
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name">Your Name</label>
-                <input
-                  type="text"
-                  className="w-full p-2 rounded bg-gray-500 border border-gray-600 focus:outline-none focus:border-green-500"
-                  placeholder="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="e.g. John Doe"
+                  value={formData.name} onChange={handleChange} required />
               </div>
               <div>
-                <label htmlFor="email">Your Email</label>
-                <input
-                  className="w-full p-2 rounded bg-gray-500 border border-gray-600 focus:outline-none focus:border-green-500"
-                  placeholder="email"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="you@example.com"
+                  value={formData.email} onChange={handleChange} required />
               </div>
               <div>
-                <label htmlFor="message">Your Message</label>
-                <textarea
-                  className="w-full h-48 p-2 rounded bg-gray-500 border border-gray-600 focus:outline-none focus:border-green-500"
-                  rows="5"
-                  placeholder="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
+                <label>Message</label>
+                <textarea name="message" rows="5" placeholder="Tell me about your project..."
+                  value={formData.message} onChange={handleChange} required
+                  style={{ resize:"vertical", minHeight:"120px" }} />
               </div>
-              <Button
-                title={isSubmitting ? "Sending..." : "Send Message"}
-                type="submit"
-                disabled={isSubmitting}
-              />
+              <button type="submit" disabled={isSubmitting}
+                className="btn-cyber w-full" style={{ cursor:"none" }}>
+                {isSubmitting ? "Transmitting..." : "Send Message →"}
+              </button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Contact;
+}

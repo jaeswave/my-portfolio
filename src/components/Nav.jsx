@@ -1,91 +1,135 @@
-
-import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io";
-import "animate.css";
+import { useState, useEffect } from "react";
 import { handleScroll } from "../utils";
 
-const Nav = () => {
-  const [navOpen, setNavOpen] = useState(false);
-  const [animateOut, setAnimateOut] = useState(false);
+const navLinks = [
+  { label: "Home",     id: "home" },
+  { label: "About",    id: "about" },
+  { label: "Skills",   id: "skills" },
+  { label: "Services", id: "service" },
+  { label: "Projects", id: "project" },
+  { label: "Contact",  id: "contact" },
+];
 
-  const toggleNav = () => {
-    if (navOpen) {
-      setAnimateOut(true);
-      setTimeout(() => {
-        setNavOpen(false);
-        setAnimateOut(false);
-      }, 500); // match animation duration
-    } else {
-      setNavOpen(true);
-    }
-  };
+export default function Nav() {
+  const [scrolled, setScrolled]   = useState(false);
+  const [active,   setActive]     = useState("home");
+  const [open,     setOpen]       = useState(false);
 
-  const navLinks = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Service", id: "service" },
-    { label: "Projects", id: "project" },
-    { label: "Contact", id: "contact" },
-  ];
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      const sections = navLinks.map(l => document.getElementById(l.id)).filter(Boolean);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (window.scrollY >= sections[i].offsetTop - 120) {
+          setActive(navLinks[i].id);
+          break;
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-black via-gray-900 to-black bg-opacity-80 backdrop-blur-md text-white px-6 md:px-16 fixed top-0 left-0 w-full shadow-lg z-50 transition-all duration-300">
-      <div className="container mx-auto flex justify-between items-center h-16">
-        <div className="text-1xl font-extrabold font-logo tracking-wider text-teal-400 animate__animated animate__fadeInLeft">
-          JaeSwave
-        </div>
+    <nav
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
+      style={{
+        background: scrolled ? "rgba(5,8,16,0.92)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(0,212,255,0.08)" : "none",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-16">
+        {/* Logo */}
+        <a
+          onClick={() => handleScroll("home")}
+          className="cursor-pointer flex items-center gap-2"
+        >
+          <span
+            className="font-display font-extrabold tracking-wider text-xl glow"
+            style={{ color: "var(--cyan)", fontFamily: "'Rubik Wet Paint', cursive" }}
+          >
+            JaeSwave
+          </span>
+          <span
+            className="font-mono text-xs px-2 py-0.5 rounded"
+            style={{ background: "rgba(0,212,255,0.1)", color: "var(--cyan)", border: "1px solid rgba(0,212,255,0.25)", letterSpacing:"0.1em" }}
+          >
+            v2.0
+          </span>
+        </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-8">
-          {navLinks.map(({ label, id }, i) => (
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map(({ label, id }) => (
             <a
               key={id}
               onClick={() => handleScroll(id)}
-              className={`cursor-pointer text-lg font-medium hover:text-teal-300 transition duration-200 ease-in-out animate__animated animate__fadeInDown animate__delay-${
-                i + 1
-              }s`}
+              className="cursor-pointer relative px-4 py-2 text-sm transition-colors duration-200"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.75rem",
+                letterSpacing: "0.08em",
+                color: active === id ? "var(--cyan)" : "var(--muted)",
+              }}
             >
-              {label}
+              {active === id && (
+                <span
+                  className="absolute inset-0 rounded"
+                  style={{ background: "rgba(0,212,255,0.07)", border: "1px solid rgba(0,212,255,0.15)" }}
+                />
+              )}
+              <span className="relative">{label}</span>
             </a>
           ))}
+          <a
+            onClick={() => handleScroll("contact")}
+            className="btn-cyber ml-4 cursor-pointer"
+          >
+            Hire Me
+          </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
-          className="md:hidden text-3xl text-teal-300 focus:outline-none animate__animated animate__fadeIn"
-          onClick={toggleNav}
-          aria-label="Toggle Navigation"
+          onClick={() => setOpen(!open)}
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          style={{ cursor: "none" }}
         >
-          {navOpen ? <IoMdClose /> : <GiHamburgerMenu />}
+          <span className="block w-6 h-px transition-all" style={{ background: open ? "var(--cyan)" : "var(--white)", transform: open ? "rotate(45deg) translateY(4px)" : "none" }} />
+          <span className="block w-4 h-px transition-all" style={{ background: open ? "transparent" : "var(--white)", opacity: open ? 0 : 1 }} />
+          <span className="block w-6 h-px transition-all" style={{ background: open ? "var(--cyan)" : "var(--white)", transform: open ? "rotate(-45deg) translateY(-4px)" : "none" }} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {navOpen && (
-        <div
-          className={`md:hidden absolute top-16 left-0 w-full bg-gray-100 text-black py-6 flex flex-col items-center space-y-4 shadow-md animate__animated ${
-            animateOut ? "animate__bounceOutUp" : "animate__fadeInDown"
-          }`}
-        >
-          {navLinks.map(({ label, id }, i) => (
+      {/* Mobile menu */}
+      <div
+        className="md:hidden overflow-hidden transition-all duration-300"
+        style={{
+          maxHeight: open ? "400px" : "0",
+          background: "rgba(5,8,16,0.98)",
+          borderBottom: open ? "1px solid rgba(0,212,255,0.1)" : "none",
+        }}
+      >
+        <div className="px-8 py-6 flex flex-col gap-5">
+          {navLinks.map(({ label, id }) => (
             <a
               key={id}
-              onClick={() => {
-                handleScroll(id);
-                toggleNav();
+              onClick={() => { handleScroll(id); setOpen(false); }}
+              className="cursor-pointer text-lg transition-colors"
+              style={{
+                fontFamily: "var(--font-mono)",
+                color: active === id ? "var(--cyan)" : "var(--white)",
               }}
-              className="text-xl font-semibold cursor-pointer hover:text-teal-700 transition duration-200 animate__animated animate__fadeIn animate__faster"
-              style={{ animationDelay: `${i * 0.1}s` }}
             >
+              <span style={{ color: "var(--cyan)", marginRight: "0.5rem", fontSize: "0.7rem" }}>
+                {String(navLinks.findIndex(l=>l.id===id)+1).padStart(2,"0")}.
+              </span>
               {label}
             </a>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
-};
-
-export default Nav;
+}

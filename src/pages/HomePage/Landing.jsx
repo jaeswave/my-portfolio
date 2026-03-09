@@ -1,131 +1,136 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "../../components/Button";
-import { Link } from "react-router-dom"; // or your routing solution
+import { useNavigate } from "react-router-dom";
 
-const Landing = ({ onExplore }) => {
-  const [typedText, setTypedText] = useState("");
-  const [showLanding, setShowLanding] = useState(true);
-  const fullText =
-    "A journey through engineering, leadership, digital architecture, and defense";
+const LINES = [
+  "> Initializing JaeSwave portfolio...",
+  "> Loading modules: engineering, security, leadership",
+  "> System check: all clear",
+  "> Welcome, visitor.",
+];
 
-  // Typewriter effect
+export default function Landing() {
+  const [lines, setLines]       = useState([]);
+  const [current, setCurrent]   = useState("");
+  const [lineIdx, setLineIdx]   = useState(0);
+  const [charIdx, setCharIdx]   = useState(0);
+  const [done, setDone]         = useState(false);
+  const [exiting, setExiting]   = useState(false);
+  const navigate = useNavigate();
+
+  // Terminal typewriter
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 40);
-    return () => clearInterval(interval);
-  }, []);
+    if (lineIdx >= LINES.length) { setDone(true); return; }
+    const target = LINES[lineIdx];
+    if (charIdx < target.length) {
+      const t = setTimeout(() => {
+        setCurrent(target.slice(0, charIdx + 1));
+        setCharIdx(c => c + 1);
+      }, charIdx === 0 ? 300 : 28);
+      return () => clearTimeout(t);
+    } else {
+      const t = setTimeout(() => {
+        setLines(l => [...l, target]);
+        setCurrent("");
+        setCharIdx(0);
+        setLineIdx(i => i + 1);
+      }, 400);
+      return () => clearTimeout(t);
+    }
+  }, [lineIdx, charIdx]);
 
-  const handleBegin = () => {
-    setShowLanding(false);
-    setTimeout(() => {
-      onExplore?.(); // trigger content change if provided
-    }, 3000);
+  const enter = () => {
+    setExiting(true);
+    setTimeout(() => navigate("/home"), 800);
   };
 
   return (
     <AnimatePresence>
-      {showLanding && (
+      {!exiting && (
         <motion.section
-          id="enter"
-          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+          className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+          style={{ background: "var(--bg)", cursor: "none" }}
           initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 1 } }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          {/* Mature Portfolio Background */}
-          <div className="absolute inset-0 overflow-hidden">
-            {/* Base Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800" />
+          {/* Grid */}
+          <div className="absolute inset-0 grid-bg opacity-60" />
+          {/* Glow */}
+          <div className="absolute" style={{
+            width:"500px", height:"500px", borderRadius:"50%",
+            background:"radial-gradient(circle,rgba(0,212,255,0.06) 0%,transparent 70%)",
+            top:"50%", left:"50%", transform:"translate(-50%,-50%)", pointerEvents:"none",
+          }}/>
 
-            {/* Subtle Grid Pattern */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-                backgroundSize: "40px 40px",
-              }}
-            />
-
-            {/* Geometric Accents */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-b from-indigo-900/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/3 bg-gradient-to-r from-purple-900/10 to-transparent" />
-
-            {/* Floating Abstract Elements */}
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-lg bg-white/5 backdrop-blur-sm border border-white/10"
-                initial={{
-                  opacity: 0,
-                  x: `${10 + Math.random() * 80}%`,
-                  y: `${10 + Math.random() * 80}%`,
-                  rotate: Math.random() * 360,
-                  width: `${100 + Math.random() * 200}px`,
-                  height: `${100 + Math.random() * 200}px`,
-                }}
-                animate={{
-                  opacity: [0, 0.1, 0],
-                  rotate: 360,
-                  x: `${Math.random() * 100}%`,
-                  y: `${Math.random() * 100}%`,
-                }}
-                transition={{
-                  duration: 60 + Math.random() * 120,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  ease: "linear",
-                }}
-              />
-            ))}
-
-            {/* Subtle Light Effects */}
-            <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-indigo-900/10 blur-[100px]" />
-            <div className="absolute bottom-1/3 -right-20 w-96 h-96 rounded-full bg-purple-900/10 blur-[100px]" />
-
-            {/* Thin Border Accents */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          </div>
-
-          {/* Content */}
-          <motion.div
-            className="container mx-auto px-6 z-10 text-center"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-          >
-            <h1 className="text-5xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300">
-              Exploring My Professional Dimensions
-            </h1>
-
-            <h2 className="text-xl md:text-2xl mb-12 text-indigo-200 h-8">
-              {typedText}
-              <span className="ml-1 animate-blink">|</span>
-            </h2>
-
-            <div className="mt-16 md:mt-14">
-              <Link to="/home" className="inline-block">
-                <Button
-                  title="Begin Exploration"
-                  onClick={handleBegin} // This will still trigger first
-                  className="font-bold text-lg"
-                />
-              </Link>
+          <div className="relative z-10 w-full max-w-2xl px-6">
+            {/* Terminal window */}
+            <div className="rounded-2xl overflow-hidden" style={{
+              border:"1px solid rgba(0,212,255,0.2)",
+              background:"rgba(8,13,26,0.95)",
+              boxShadow:"0 0 60px rgba(0,212,255,0.08)",
+            }}>
+              {/* Title bar */}
+              <div className="flex items-center gap-2 px-5 py-3" style={{ borderBottom:"1px solid rgba(0,212,255,0.1)", background:"rgba(0,0,0,0.3)" }}>
+                <span style={{ width:10, height:10, borderRadius:"50%", background:"#ff5f56" }}/>
+                <span style={{ width:10, height:10, borderRadius:"50%", background:"#ffbd2e" }}/>
+                <span style={{ width:10, height:10, borderRadius:"50%", background:"#27c93f" }}/>
+                <span className="ml-4 font-mono text-xs" style={{ color:"var(--muted)", fontFamily:"var(--font-mono)", letterSpacing:"0.1em" }}>
+                  jaeswave@portfolio ~ zsh
+                </span>
+              </div>
+              {/* Terminal body */}
+              <div className="p-8 min-h-[240px]">
+                {lines.map((l, i) => (
+                  <p key={i} className="font-mono text-sm mb-2" style={{
+                    fontFamily:"var(--font-mono)",
+                    color: l.includes("Welcome") ? "var(--green)" : "rgba(232,237,245,0.7)",
+                    fontSize:"0.82rem",
+                  }}>
+                    {l}
+                  </p>
+                ))}
+                {lineIdx < LINES.length && (
+                  <p className="font-mono text-sm" style={{ fontFamily:"var(--font-mono)", color:"var(--cyan)", fontSize:"0.82rem" }}>
+                    {current}
+                    <span style={{
+                      display:"inline-block", width:"8px", height:"14px",
+                      background:"var(--cyan)", marginLeft:"2px", verticalAlign:"middle",
+                      animation:"blink 1s step-start infinite",
+                    }}/>
+                  </p>
+                )}
+                {done && (
+                  <p className="font-mono text-sm mt-2" style={{ fontFamily:"var(--font-mono)", color:"rgba(232,237,245,0.4)", fontSize:"0.82rem" }}>
+                    _
+                    <span style={{
+                      display:"inline-block", width:"8px", height:"14px",
+                      background:"rgba(232,237,245,0.4)", marginLeft:"2px", verticalAlign:"middle",
+                      animation:"blink 1s step-start infinite",
+                    }}/>
+                  </p>
+                )}
+              </div>
             </div>
-          </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              className="text-center mt-10"
+              initial={{ opacity:0, y:20 }}
+              animate={{ opacity: done ? 1 : 0, y: done ? 0 : 20 }}
+              transition={{ duration:0.6 }}
+            >
+              <button className="btn-cyber text-base px-10 py-4" onClick={enter} style={{ cursor:"none" }}>
+                Enter Portfolio →
+              </button>
+              <p className="font-mono text-xs mt-4" style={{ color:"var(--muted)", fontFamily:"var(--font-mono)", letterSpacing:"0.1em" }}>
+                Tijani Oladele · Full Stack · Cybersecurity · PM
+              </p>
+            </motion.div>
+          </div>
+          <style>{`@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}`}</style>
         </motion.section>
       )}
     </AnimatePresence>
   );
-};
-
-export default Landing;
+}

@@ -1,69 +1,101 @@
+import { useEffect, useRef } from "react";
 import aboutImage from "../../../assets/aboutImage.png";
 
-const About = () => {
-  return (
-    <section id="about" className="py-24 text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            Who I Am
-          </h2>
-          <p className="mt-4 text-lg md:text-xl text-gray-300">
-            A builder. A leader. A defender of secure, scalable software.
-          </p>
-        </div>
+export default function About() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const els = ref.current?.querySelectorAll(".reveal");
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.15 });
+    els?.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
-        {/* Content */}
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Image */}
-          <div className="flex-shrink-0">
-            <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden shadow-xl border border-white/10 relative group">
+  const facts = [
+    { icon: "⚙️", label: "Backend Systems",   val: "Node · Express · NestJS · Django · Rails" },
+    { icon: "🎨", label: "Frontend",           val: "React · Next.js · Vue · Tailwind" },
+    { icon: "🔒", label: "Cybersecurity",      val: "PenTest · Threat Modeling · Audits" },
+    { icon: "☁️", label: "Cloud & DevOps",     val: "AWS · Docker · CI/CD · Jenkins" },
+    { icon: "📋", label: "Project Management", val: "Agile · Scrum · Jira · Asana" },
+  ];
+
+  return (
+    <section id="about" className="py-28 relative" ref={ref}
+      style={{ background: "linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="section-label mb-4 reveal">01 / About</div>
+        <h2 className="font-display font-extrabold mb-16 reveal"
+          style={{ fontSize: "clamp(2.5rem,5vw,4rem)", fontFamily:"var(--font-display)", animationDelay:"0.1s" }}>
+          Who I Am
+        </h2>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Image side */}
+          <div className="reveal">
+            <div className="relative inline-block">
+              <div className="absolute -inset-3 rounded-2xl" style={{ background:"linear-gradient(135deg,rgba(0,212,255,0.15),transparent 60%,rgba(0,255,136,0.1))", filter:"blur(20px)" }} />
               <img
                 src={aboutImage}
-                alt="Oladdele Tijani Sheu"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                alt="Tijani Oladele"
+                className="relative rounded-2xl w-full max-w-md object-cover"
+                style={{ border:"1px solid rgba(0,212,255,0.15)", filter:"contrast(1.05) brightness(0.95)" }}
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-300 rounded-2xl" />
+              {/* Corner accents */}
+              {["top-0 left-0","top-0 right-0","bottom-0 left-0","bottom-0 right-0"].map((pos,i) => (
+                <div key={i} className={`absolute ${pos} w-6 h-6`} style={{
+                  borderTop: i<2 ? "2px solid var(--cyan)" : "none",
+                  borderBottom: i>=2 ? "2px solid var(--cyan)" : "none",
+                  borderLeft: i%2===0 ? "2px solid var(--cyan)" : "none",
+                  borderRight: i%2===1 ? "2px solid var(--cyan)" : "none",
+                }}/>
+              ))}
             </div>
           </div>
 
-          {/* Description */}
-          <div className="max-w-2xl space-y-6 text-center lg:text-left text-gray-300 text-lg leading-relaxed">
-            <div className="space-y-4 text-indigo-100">
-              <p>
-                I'm a tech polyglot with a passion for building scalable
-                systems, leading projects to success, and ensuring security at
-                every layer. With a strong foundation in engineering and
-                leadership, I thrive where code meets coordination and
-                protection.
-              </p>
-              <p>
-                My journey spans multiple dimensions of technology, from
-                crafting elegant code solutions to orchestrating complex
-                projects and safeguarding digital assets. Each realm represents
-                a facet of my professional identity, interconnected yet
-                distinct.
-              </p>
-              <p>
-                When I'm not traversing the digital multiverse, you might find
-                me exploring actual universes through astronomy, composing
-                electronic music, or designing generative art systems.
-              </p>
+          {/* Text side */}
+          <div>
+            <p className="text-lg leading-relaxed mb-6 reveal"
+              style={{ color:"rgba(232,237,245,0.7)", fontFamily:"var(--font-body)", animationDelay:"0.15s" }}>
+              I'm a <span style={{ color:"var(--cyan)" }}>tech polyglot</span> based in Lagos, Nigeria — building 
+              secure, scalable systems at the intersection of engineering and leadership. My work spans 
+              full-stack development, cybersecurity, and technical project delivery.
+            </p>
+            <p className="text-lg leading-relaxed mb-10 reveal"
+              style={{ color:"rgba(232,237,245,0.7)", fontFamily:"var(--font-body)", animationDelay:"0.2s" }}>
+              When I'm not in the terminal, I'm exploring astronomy, composing electronic music, 
+              or designing generative art. Every dimension of my work is connected — 
+              <span style={{ color:"var(--green)" }}> code, coordination, and protection.</span>
+            </p>
+
+            {/* Fact list */}
+            <div className="space-y-4">
+              {facts.map(({ icon, label, val }, i) => (
+                <div key={label}
+                  className="reveal flex items-start gap-4 p-4 rounded-xl card-border"
+                  style={{ animationDelay: `${0.1*i + 0.25}s` }}>
+                  <span style={{ fontSize:"1.2rem", lineHeight:1 }}>{icon}</span>
+                  <div>
+                    <div className="font-mono text-xs mb-1" style={{ color:"var(--cyan)", letterSpacing:"0.1em" }}>{label}</div>
+                    <div className="text-sm" style={{ color:"rgba(232,237,245,0.55)", fontFamily:"var(--font-body)" }}>{val}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick stats */}
+            <div className="flex gap-8 mt-10 reveal" style={{ animationDelay:"0.6s" }}>
+              {[["3+","Years"], ["10+","Projects"], ["Lagos","Based"]].map(([n,l]) => (
+                <div key={l} className="text-center">
+                  <div className="stat-number text-2xl">{n}</div>
+                  <div className="font-mono text-xs mt-1" style={{ color:"var(--muted)", letterSpacing:"0.1em" }}>{l}</div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </div>
-      <div className="mt-8 flex flex-wrap gap-4 justify-center">
-        <div className="px-4 py-2 bg-indigo-900/50 backdrop-blur-sm rounded-full border border-indigo-500/30">
-          <span className="text-indigo-300">3+ Years Experience</span>
-        </div>
-        <div className="px-4 py-2 bg-purple-900/50 backdrop-blur-sm rounded-full border border-purple-500/30">
-          <span className="text-purple-300">10+ Projects Delivered</span>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

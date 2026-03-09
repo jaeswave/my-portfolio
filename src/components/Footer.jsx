@@ -1,39 +1,33 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaRegCopyright,
-  FaTwitter,
-} from "react-icons/fa6";
+import { handleScroll } from "../utils";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <div className="bg-black  border-t-2 px-8">
-      <div className="container mx-auto px-5 py-2 text-white  text-[1.2rem] grid md:grid-cols-3 gap-2 place-items-center place-self-center">
-        <p className="flex items-center gap-1">
-          <FaRegCopyright />
-          <span>2024</span>
+    <footer style={{ background:"var(--bg2)", borderTop:"1px solid rgba(0,212,255,0.08)" }}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <span className="font-display font-extrabold text-lg glow"
+            style={{ color:"var(--cyan)", fontFamily:"'Rubik Wet Paint',cursive" }}>
+            JaeSwave
+          </span>
+          <p className="font-mono text-xs mt-1" style={{ color:"var(--muted)", letterSpacing:"0.05em" }}>
+            Tijani Oladele · Lagos, Nigeria
+          </p>
+        </div>
+        <div className="flex gap-6">
+          {[["Home","home"],["About","about"],["Projects","project"],["Contact","contact"]].map(([l,id]) => (
+            <a key={id} onClick={() => handleScroll(id)}
+              className="font-mono text-xs transition-colors cursor-pointer"
+              style={{ color:"var(--muted)", letterSpacing:"0.08em", fontFamily:"var(--font-mono)" }}
+              onMouseEnter={e => e.target.style.color="var(--cyan)"}
+              onMouseLeave={e => e.target.style.color="var(--muted)"}>
+              {l}
+            </a>
+          ))}
+        </div>
+        <p className="font-mono text-xs" style={{ color:"var(--muted)", fontFamily:"var(--font-mono)" }}>
+          © {new Date().getFullYear()} · Built with React
         </p>
-        <div className="flex gap-3">
-          <a
-            href="https://www.linkedin.com/in/oladele-tijani-4350302b1/"
-            target="_black"
-          >
-            <FaLinkedin />
-          </a>
-          <a href="https://github.com/jaeswave" target="_black">
-            <FaGithub />
-          </a>
-          <a href="https://x.com/jaeswave" target="_blank">
-            <FaTwitter />
-          </a>
-        </div>
-        <div className="flex gap-4">
-          <a href="">privacy</a>
-          <a href="">Terms of service</a>
-        </div>
       </div>
-    </div>
+    </footer>
   );
-};
-
-export default Footer;
+}
