@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="relative min-h-screen grid-bg flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen grid-bg flex items-center justify-center overflow-hidden mt-16"
       style={{ paddingTop: "5rem", paddingBottom: "4rem" }}
     >
       {/* Particle canvas */}
@@ -266,7 +266,7 @@ export default function Home() {
             {/* Stats — mobile */}
             <div className="flex justify-center gap-8 mb-8">
               {[
-                ["3+", "Years"],
+                ["5+", "Years"],
                 ["10+", "Projects"],
                 ["5+", "Stacks"],
               ].map(([num, label]) => (

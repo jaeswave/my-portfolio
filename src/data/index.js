@@ -79,9 +79,6 @@ export const services = [
   },
 ];
 
-
-
-
 export const projects = [
   {
     id: 1,
@@ -184,13 +181,9 @@ export const projects = [
     id: 9,
     title: "Raise Vision Logistics",
     description:
-      "A logistics management platform for efficient tracking and delivery of goods internationally.", 
+      "A logistics management platform for efficient tracking and delivery of goods internationally.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    features: [
-      "Shipment tracking",
-      "Real-time updates",
-      "User authentication",
-    ],
+    features: ["Shipment tracking", "Real-time updates", "User authentication"],
     liveLink: "https://raisevisionlogistics.com",
     image: raisevision,
   },
@@ -205,8 +198,33 @@ export const projects = [
       "Oceanfront dining",
       "Spa and wellness services",
     ],
-    liveLink: "https://bay-view.vercel.app/",
+    liveLink: "https://www.islandhopper.vc",
     image: bayview,
-  }
-];
+  },
+  {
+    id: 11,
+    title: "Field Nation Auto Applier",
+    description:
+      "A Python-based automation tool that automatically applies to Field Nation work orders with custom pricing, scheduling, and continuous scanning capabilities.",
+    techStack: [
+      "Python",
+      "Selenium",
+      "Tkinter",
+      "Threading",
+      "JSON",
+      "Chrome WebDriver",
+    ],
+    features: [
+      "Automated job application with custom pricing",
+      "3x weekly scheduling with time configuration",
+      "Continuous scanning with refresh intervals",
+      "Distance filtering and applied job history",
+      "Counter-offer automation with modal handling",
+      "Smart scrolling and job detection",
+      "Live status updates and activity logging",
+    ],
+    liveLink: "https://github.com/jaeswave/Automated-Applier-for-FN",
+  },
 
+ 
+];
