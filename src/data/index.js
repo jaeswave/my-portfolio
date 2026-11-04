@@ -225,6 +225,9 @@ export const projects = [
     ],
     liveLink: "https://github.com/jaeswave/Automated-Applier-for-FN",
   },
+  { 
+    
+  }
 
  
 ];

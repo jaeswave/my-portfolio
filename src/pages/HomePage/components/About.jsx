@@ -28,21 +28,19 @@ export default function About() {
         <div className="section-label mb-4 reveal">01 / About</div>
         <h2 className="font-display font-extrabold mb-16 reveal"
           style={{ fontSize: "clamp(2.5rem,5vw,4rem)", fontFamily:"var(--font-display)", animationDelay:"0.1s" }}>
-          Who I Am
+          Building with clarity, speed, and security
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Image side */}
           <div className="reveal">
-            <div className="relative inline-block">
-              <div className="absolute -inset-3 rounded-2xl" style={{ background:"linear-gradient(135deg,rgba(0,212,255,0.15),transparent 60%,rgba(0,255,136,0.1))", filter:"blur(20px)" }} />
+            <div className="relative inline-block premium-panel p-4 rounded-3xl">
+              <div className="absolute -inset-3 rounded-2xl" style={{ background:"linear-gradient(135deg,rgba(125,211,252,0.18),transparent 60%,rgba(142,245,209,0.12))", filter:"blur(24px)" }} />
               <img
                 src={aboutImage}
                 alt="Tijani Oladele"
                 className="relative rounded-2xl w-full max-w-md object-cover"
-                style={{ border:"1px solid rgba(0,212,255,0.15)", filter:"contrast(1.05) brightness(0.95)" }}
+                style={{ border:"1px solid rgba(125,211,252,0.12)", filter:"contrast(1.05) brightness(0.96)", maxHeight: "560px" }}
               />
-              {/* Corner accents */}
               {["top-0 left-0","top-0 right-0","bottom-0 left-0","bottom-0 right-0"].map((pos,i) => (
                 <div key={i} className={`absolute ${pos} w-6 h-6`} style={{
                   borderTop: i<2 ? "2px solid var(--cyan)" : "none",
@@ -54,22 +52,16 @@ export default function About() {
             </div>
           </div>
 
-          {/* Text side */}
           <div>
             <p className="text-lg leading-relaxed mb-6 reveal"
-              style={{ color:"rgba(232,237,245,0.7)", fontFamily:"var(--font-body)", animationDelay:"0.15s" }}>
-              I'm a <span style={{ color:"var(--cyan)" }}>tech polyglot</span> based in Lagos, Nigeria — building 
-              secure, scalable systems at the intersection of engineering and leadership. My work spans 
-              full-stack development, cybersecurity, and technical project delivery.
+              style={{ color:"rgba(232,237,245,0.72)", fontFamily:"var(--font-body)", animationDelay:"0.15s" }}>
+              I’m a <span style={{ color:"var(--cyan)" }}>full-stack engineer and digital product builder</span> based in Lagos, Nigeria, with a strong focus on shipping secure, reliable, and user-centered experiences.
             </p>
             <p className="text-lg leading-relaxed mb-10 reveal"
-              style={{ color:"rgba(232,237,245,0.7)", fontFamily:"var(--font-body)", animationDelay:"0.2s" }}>
-              When I'm not in the terminal, I'm exploring astronomy, composing electronic music, 
-              or designing generative art. Every dimension of my work is connected — 
-              <span style={{ color:"var(--green)" }}> code, coordination, and protection.</span>
+              style={{ color:"rgba(232,237,245,0.72)", fontFamily:"var(--font-body)", animationDelay:"0.2s" }}>
+              My work sits at the intersection of <span style={{ color:"var(--green)" }}>software engineering, systems thinking, and business value</span> — helping teams turn ideas into robust products that perform, scale, and protect user trust.
             </p>
 
-            {/* Fact list */}
             <div className="space-y-4">
               {facts.map(({ icon, label, val }, i) => (
                 <div key={label}
@@ -84,9 +76,8 @@ export default function About() {
               ))}
             </div>
 
-            {/* Quick stats */}
             <div className="flex gap-8 mt-10 reveal" style={{ animationDelay:"0.6s" }}>
-              {[["3+","Years"], ["10+","Projects"], ["Lagos","Based"]].map(([n,l]) => (
+              {[ ["3+","Years"], ["10+","Projects"], ["Lagos","Based"] ].map(([n,l]) => (
                 <div key={l} className="text-center">
                   <div className="stat-number text-2xl">{n}</div>
                   <div className="font-mono text-xs mt-1" style={{ color:"var(--muted)", letterSpacing:"0.1em" }}>{l}</div>

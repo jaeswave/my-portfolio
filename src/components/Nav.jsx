@@ -34,9 +34,9 @@ export default function Nav() {
     <nav
       className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
       style={{
-        background: scrolled ? "rgba(5,8,16,0.92)" : "transparent",
+        background: scrolled ? "rgba(6, 19, 29, 0.88)" : "rgba(6, 19, 29, 0.28)",
         backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(0,212,255,0.08)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(125, 211, 252, 0.08)" : "none",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-16">
@@ -49,13 +49,13 @@ export default function Nav() {
             className="font-display font-extrabold tracking-wider text-xl glow"
             style={{ color: "var(--cyan)", fontFamily: "'Rubik Wet Paint', cursive" }}
           >
-            JaeSwave
+            TO
           </span>
           <span
-            className="font-mono text-xs px-2 py-0.5 rounded"
-            style={{ background: "rgba(0,212,255,0.1)", color: "var(--cyan)", border: "1px solid rgba(0,212,255,0.25)", letterSpacing:"0.1em" }}
+            className="font-mono text-[10px] px-2 py-0.5 rounded-full"
+            style={{ background: "rgba(125,211,252,0.12)", color: "var(--cyan)", border: "1px solid rgba(125,211,252,0.25)", letterSpacing:"0.14em" }}
           >
-            v2.0
+            PORTFOLIO
           </span>
         </a>
 

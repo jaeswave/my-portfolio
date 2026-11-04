@@ -27,24 +27,22 @@ export default function Contact() {
   return (
     <section id="contact" className="py-28 relative" ref={ref}
       style={{ background:"linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)" }}>
-      {/* Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2"
         style={{ width:"600px", height:"300px", borderRadius:"50%",
-          background:"radial-gradient(ellipse,rgba(0,255,136,0.05) 0%,transparent 70%)",
+          background:"radial-gradient(ellipse,rgba(142,245,209,0.07) 0%,transparent 70%)",
           pointerEvents:"none" }}/>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="section-label mb-4 reveal">05 / Contact</div>
         <h2 className="font-display font-extrabold mb-4 reveal"
           style={{ fontSize:"clamp(2.5rem,5vw,4rem)", fontFamily:"var(--font-display)", animationDelay:"0.1s" }}>
-          Let's Build Together
+          Let’s build something remarkable
         </h2>
-        <p className="mb-16 reveal" style={{ color:"var(--muted)", maxWidth:"480px", fontFamily:"var(--font-body)", animationDelay:"0.15s" }}>
-          Open to full-time roles, freelance projects, and technical partnerships.
+        <p className="mb-16 reveal" style={{ color:"var(--muted)", maxWidth:"520px", fontFamily:"var(--font-body)", animationDelay:"0.15s" }}>
+          Open to full-time roles, freelance partnerships, product consulting, and technical collaborations.
         </p>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left */}
           <div>
             <div className="space-y-5 mb-10">
               {contacts.map(({ icon, label, val, href }) => (
@@ -65,13 +63,12 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Social */}
             <div className="reveal" style={{ animationDelay:"0.35s" }}>
               <div className="font-mono text-xs mb-4" style={{ color:"var(--muted)", letterSpacing:"0.15em" }}>FIND ME ONLINE</div>
-              <div className="flex gap-4">
-                {[["GitHub","https://github.com"],["LinkedIn","https://linkedin.com"],["Twitter","https://twitter.com"]].map(([name, url]) => (
+              <div className="flex flex-wrap gap-4">
+                {[ ["GitHub","https://github.com/jaeswave"],["LinkedIn","https://www.linkedin.com"],["X / Twitter","https://x.com"] ].map(([name, url]) => (
                   <a key={name} href={url} target="_blank" rel="noopener noreferrer"
-                    className="btn-ghost text-xs" style={{ cursor:"none", padding:"0.5rem 1rem" }}>
+                    className="btn-ghost text-xs" style={{ cursor:"none", padding:"0.55rem 1rem" }}>
                     {name}
                   </a>
                 ))}
@@ -79,8 +76,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
-          <div className="reveal" style={{ animationDelay:"0.25s" }}>
+          <div className="reveal premium-panel p-6 rounded-3xl" style={{ animationDelay:"0.25s" }}>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label>Your Name</label>

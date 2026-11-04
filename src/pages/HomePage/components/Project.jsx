@@ -96,10 +96,10 @@ export default function Project() {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {project.techStack.slice(0,4).map((t,j) => (
+                  {project.techStack?.slice(0,4).map((t,j) => (
                     <span key={j} className="skill-tag">{t}</span>
                   ))}
-                  {project.techStack.length > 4 && (
+                  {project.techStack?.length > 4 && (
                     <span className="skill-tag" style={{ color:"var(--muted)", borderColor:"rgba(255,255,255,0.08)" }}>
                       +{project.techStack.length - 4}
                     </span>

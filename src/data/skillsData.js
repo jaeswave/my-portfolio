@@ -1,36 +1,3 @@
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaPython,
-  FaReact,
-  FaNodeJs,
-  FaDocker,
-  FaAws,
-  FaGit,
-  FaGithub,
-  FaStripe,
-  FaSlack,
-} from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiNestjs,
-  SiDjango,
-  SiTailwindcss,
-  SiBootstrap,
-  SiRedux,
-  SiAxios,
-  SiMysql,
-  SiMongodb,
-  SiPostgresql,
-  SiGraphql,
-  SiTypescript,
-  SiJira,
-  SiTrello,
-  SiAsana,
-  SiRedis,
-} from "react-icons/si";
-
 export const skills = [
   {
     title: "Full Stack Engineer",
